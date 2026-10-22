@@ -31,6 +31,13 @@ public sealed class LibraryService
         }
 
         Normalize();
+
+        // 首次运行（还没有 library.json）时写一个空数组，
+        // 让数据目录结构一眼可见，也方便用户手工编辑/备份。
+        if (!File.Exists(AppPaths.LibraryFile))
+        {
+            Save();
+        }
     }
 
     public void Save()

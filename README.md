@@ -81,6 +81,10 @@
 
 ![紧凑模式](docs/screenshots/compact.png)
 
+### 首次启动（空状态）
+
+![首次启动](docs/screenshots/empty.png)
+
 > 截图由 `tools/make-screenshots.ps1` 在程序运行时自动抓取（`PrintWindow` + `PW_RENDERFULLCONTENT`，对 WPF 无边框窗口也能拿到真实渲染内容）。
 
 ---

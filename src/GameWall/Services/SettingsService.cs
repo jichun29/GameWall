@@ -40,6 +40,14 @@ public sealed class SettingsService
         }
 
         Current = loaded;
+
+        // 首次运行（或配置文件被杀掉）时立刻落盘一份，
+        // 这样用户一启动就能在 %AppData%\GameWall\ 里看到 settings.json，
+        // 也避免「改了设置但进程被杀、配置还没写过」的情况。
+        if (!File.Exists(AppPaths.SettingsFile))
+        {
+            Save();
+        }
     }
 
     public void Save()
